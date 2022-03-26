@@ -1,0 +1,29 @@
+{
+  "name": "website",
+  "version": "0.0.1",
+  "description": "组件库的在线文档",
+  "author": "Liu <528851597@qq.com>",
+  "homepage": "https://github.com/toys-team/toys-ui#readme",
+  "license": "ISC",
+  "main": "lib/website.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toys-team/toys-ui.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/toys-team/toys-ui/issues"
+  },
+  "devDependencies": {
+    "lint-staged": "^12.3.7"
+  }
+}
