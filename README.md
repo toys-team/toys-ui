@@ -1,5 +1,5 @@
 <p align="center" height="170">
-  <img  style="height:170px;width:170px;" height="170" width="170" src="[http://qiniu.liuqh.cn/blogImage/logo (1)的副本.png](http://qiniu.liuqh.cn/blogImage/toyslogo.png)"/>
+  <img  style="height:170px;width:170px;" height="170" width="170" src="(http://qiniu.liuqh.cn/blogImage/toyslogo.png"/>
 </p>
 
 <p align="center">
