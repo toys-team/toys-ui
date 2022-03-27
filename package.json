@@ -10,6 +10,9 @@
     "prettier": "prettier --ignore-path .gitignore \"packages/*/+(src|__tests__|components)/**/*.+(ts|tsx)\"",
     "prepare": "husky install"
   },
+  "engines": {
+    "node": ">=16"
+  },
   "lint-staged": {
     "packages/**/**/*.{ts,tsx}": "prettier --write --ignore-unknown"
   },
