@@ -1,5 +1,6 @@
 {
   "name": "root",
+  "version": "0.0.0",
   "private": true,
   "license": "MIT",
   "workspaces": [
@@ -8,7 +9,8 @@
   "scripts": {
     "lint": "eslint \"packages/*/+(src|__tests__|components)/**/*.+(ts|tsx)\"",
     "prettier": "prettier --ignore-path .gitignore \"packages/*/+(src|__tests__|components)/**/*.+(ts|tsx)\"",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
   "lint-staged": {
     "packages/**/**/*.{ts,tsx}": "prettier --write --ignore-unknown"
@@ -21,6 +23,8 @@
     "@typescript-eslint/eslint-plugin": "^5.16.0",
     "@typescript-eslint/parser": "^5.16.0",
     "@vitejs/plugin-react": "^1.2.0",
+    "conventional-changelog": "^3.1.25",
+    "conventional-changelog-cli": "^2.2.2",
     "eslint": "^8.12.0",
     "eslint-plugin-react": "^7.29.4",
     "husky": "^7.0.4",
