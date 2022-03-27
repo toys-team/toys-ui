@@ -1,1 +1,1 @@
-const b = 123;
+export { Button } from './components';
