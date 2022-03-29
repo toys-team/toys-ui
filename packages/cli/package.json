@@ -1,0 +1,27 @@
+{
+  "name": "@toys/cli",
+  "version": "0.0.1",
+  "description": "其实也没什么功能,就是把一些工程化配置抽取出来,做组件库的打包和本地服务的启用",
+  "author": "Liu <528851597@qq.com>",
+  "homepage": "https://github.com/toys-team/toys-ui#readme",
+  "license": "ISC",
+  "main": "bin/cli.js",
+  "types": "./lib/index.d.ts",
+  "bin": {
+    "toys-dev": "bin/cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toys-team/toys-ui.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "dev": " npx swc ./src -d lib --config-file .swcrc -w"
+  },
+  "bugs": {
+    "url": "https://github.com/toys-team/toys-ui/issues"
+  },
+  "dependencies": {
+    "commander": "^9.1.0"
+  }
+}

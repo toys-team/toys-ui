@@ -1,0 +1,12 @@
+{
+  "minify": true,
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "tsx": false,
+      "module": "commonjs",
+      "decorators": false,
+      "dynamicImport": false
+    }
+  }
+}
