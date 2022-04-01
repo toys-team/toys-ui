@@ -18,6 +18,8 @@
   "devDependencies": {
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
     "@types/react": "^17.0.43",
     "@types/react-dom": "^17.0.14",
     "@typescript-eslint/eslint-plugin": "^5.16.0",
@@ -36,6 +38,7 @@
   },
   "dependencies": {
     "@toys/toys-ui": "file:packages/toys",
+    "semantic-release": "^19.0.2",
     "website": "file:packages/website"
   }
 }
