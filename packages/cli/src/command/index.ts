@@ -1,2 +1,2 @@
-export { dev } from './dev';
-export { build } from './build';
+export * from './dev';
+export * from './build';

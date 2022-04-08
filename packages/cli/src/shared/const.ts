@@ -7,5 +7,7 @@ export const VERSION: string = packageInfo.version;
 // 当前命令行执行根路径
 export const CWD = cwd();
 // cli配置文件
-export const CONFIG_FILE_NAME = 'tey.config.ts';
-export const CONFIG_FILE_PATH = path.resolve(CWD, CONFIG_FILE_NAME);
+export enum CONFIG_FILE_NAME {
+  js = 'tey.config.js',
+  ts = 'tey.config.ts',
+}
