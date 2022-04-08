@@ -1,0 +1,35 @@
+{
+  "name": "@toys/tey-cli",
+  "version": "0.0.1",
+  "description": "tey-cli(the early young) -- 其实也没什么功能,就是把一些工程化配置抽取出来,做组件库的打包和本地服务的启用",
+  "author": "Liu <528851597@qq.com>",
+  "homepage": "https://github.com/toys-team/toys-ui#readme",
+  "license": "ISC",
+  "main": "bin/cli.js",
+  "types": "./lib/index.d.ts",
+  "bin": {
+    "tey": "bin/cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toys-team/toys-ui.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build": "rm -rf lib && tsc",
+    "build:watch": "rm -rf lib && tsc --watch"
+  },
+  "bugs": {
+    "url": "https://github.com/toys-team/toys-ui/issues"
+  },
+  "dependencies": {
+    "chalk": "4.1.2",
+    "commander": "^9.1.0",
+    "fs-extra": "^10.0.1",
+    "vite": "^2.9.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
+    "@types/lodash-es": "^4.17.6"
+  }
+}

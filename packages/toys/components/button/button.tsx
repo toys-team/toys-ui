@@ -5,7 +5,7 @@ interface IProps {
 }
 
 const Button: React.FC<IProps> = props => {
-  return <div>这是一个button</div>;
+  return <div>这是一个buttonsssss</div>;
 };
 
 export default Button;
