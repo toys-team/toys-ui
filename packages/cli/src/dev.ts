@@ -1,23 +1,17 @@
-import { TeyConfig } from '../index';
-import { createServer, InlineConfig } from 'vite';
-import { build } from 'esbuild';
-import { CWD, CONFIG_FILE_NAME } from '../shared/const';
-import { merge } from 'lodash';
 import fs from 'fs-extra';
 import chalk from 'chalk';
 import path from 'path';
-import { defaultDevConfig } from '../shared/defaultConfig';
-
-const { log } = console;
-
-export const useTeyConfig = (config: TeyConfig) => config;
+import { merge } from 'lodash';
+import { createServer } from 'vite';
+import { bundleConfigFile, loadConfigFromBundledFile, TeyConfig } from './config';
+import { CONFIG_FILE_NAME, CWD } from './shared/const';
+import { defaultDevConfig } from './shared/defaultConfig';
 
 /**
  * tey dev 命令的执行文件
  */
 export const dev = async () => {
   await startDevServer();
-  log(chalk.green('🍬 本地服务启用成功'));
 };
 
 /**
@@ -25,21 +19,17 @@ export const dev = async () => {
  */
 const startDevServer = async () => {
   const options = (await resolveOptions()) || {};
-  console.log(
-    '%c 🏄‍♂️ options:',
-    'font-size:22px;background-color:rgb(255, 166, 15);color:#fff;',
-    options,
-  );
   const server = await createServer(options);
   await server.listen();
   server.printUrls();
 };
+
 /**
  * 处理配置
  * @param configPath 配置文件路径
  * @returns 用户自定义配置
  */
-async function resolveOptions(configPath?: string): Promise<TeyConfig | undefined> {
+export async function resolveOptions(configPath?: string): Promise<TeyConfig | undefined> {
   let resolvedPath: string | undefined;
   // TODO 这里需要区分dev和build环境，然后导出不同的默认配置
   const defaultConfig = defaultDevConfig;
@@ -82,10 +72,11 @@ async function resolveOptions(configPath?: string): Promise<TeyConfig | undefine
     if (!userConfig) {
       // 走到这里的话又两种情况：1. ts文件； 2. js文件中出现了 import或者export等ES Module语法
       // 所以这里需要打包为cmj格式
-      const output = await bundle(resolvedPath, 'cjs');
+      const output = await bundleConfigFile(resolvedPath);
+      userConfig = loadConfigFromBundledFile(resolvedPath, output.code);
     }
 
-    if (userConfig?.port) {
+    if (userConfig?.port && defaultConfig.server) {
       defaultConfig.server.port = userConfig?.port;
       delete userConfig.port;
     }
@@ -98,18 +89,3 @@ async function resolveOptions(configPath?: string): Promise<TeyConfig | undefine
     process.exit(1);
   }
 }
-
-const bundle = async (entry: string, format: 'iife' | 'cjs' | 'esm' = 'esm') => {
-  const output = await build({
-    entryPoints: [entry],
-    format,
-    platform: 'node',
-    bundle: true, // 将所有模块打包成一个文件
-    metafile: true,
-    external: ['@vite/plugin-react'], // 对于第三方文件不进行打包，直接引入
-    // write: false, // 不输出文件，将其写到缓存区
-    outfile: 'out.js',
-  });
-
-  return output;
-};
